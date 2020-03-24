@@ -20,6 +20,10 @@ class Message {
     return instance
   }
 
+  // The following static function is primarily for convenience.
+  // Gearshaft's `follow` implementation will ensure to call
+  // `create` when instantiating the message class, and thus
+  // schema validation would be performed when following messages.
   static follow (previous, additionalFields) {
     try {
       return follow(previous, this, additionalFields)
@@ -31,21 +35,21 @@ class Message {
     }
   }
 
-  static validate (input, stackFunction) {
-    // SCHEMA: return sanitized message attributes
-    return input
-
-    // The following example expects concrete Message implementations
-    // to include a static `schema` field with a Yup validation object.
-    // Alternative approaches could include leaning on JSON Schema.
-
-    // try {
-    //   return this.schema.validateSync(input, { stripUnknown: true })
-    // } catch (error) {
-    //   Error.captureStackTrace(error, stackFunction || Message.validate)
-    //   throw error
-    // }
-  }
+  // The following example expects concrete Message implementations
+  // to include a static `schema` field with a Yup validation object.
+  // Alternative approaches could include leaning on JSON Schema.
+  //
+  // The validate function would typically perform validation and
+  // sanitization of inputs, like unknown fields removal.
+  //
+  // static validate (input, stackFunction) {
+  //   try {
+  //     return this.schema.validateSync(input, { stripUnknown: true })
+  //   } catch (error) {
+  //     Error.captureStackTrace(error, stackFunction || Message.validate)
+  //     throw error
+  //   }
+  // }
 }
 
 module.exports = { Message }
