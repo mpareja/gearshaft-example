@@ -1,0 +1,71 @@
+{
+  "name": "gearshaft-example",
+  "author": "Mario Pareja",
+  "version": "1.0.0",
+  "description": "Gearshaft usage example",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf .nyc_output coverage",
+    "cov": "opener coverage/index.html",
+    "dev": "node --inspect=9229 . | pino-pretty -t",
+    "lint": "standard --verbose",
+    "test": "npm run clean && npm run lint && npm run jest",
+    "jest": "jest ${JEST_CI_ENV:-'--notify'}"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "./tools/commit-msg \"$HUSKY_GIT_PARAMS\"",
+      "pre-commit": "npm test"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    },
+    "testEnvironment": "node",
+    "transform": {},
+    "verbose": true
+  },
+  "keywords": [
+    "gearshaft"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpareja/gearshaft-example.git"
+  },
+  "standard": {
+    "env": [
+      "jest",
+      "node"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/mpareja/gearshaft-example/issues"
+  },
+  "homepage": "https://github.com/mpareja/gearshaft-example#readme",
+  "dependencies": {
+    "gearshaft": "^0.12.3",
+    "pino": "^5.17.0",
+    "rc": "^1.2.8"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "opener": "^1.5.1",
+    "pino-pretty": "^3.6.1",
+    "rimraf": "^3.0.2",
+    "standard": "^14.3.3"
+  }
+}
