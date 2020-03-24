@@ -1,10 +1,12 @@
-const { startHost } = require('../host')
+const { configureModules } = require('../../configure-modules')
 const { createTestConfig, createTestLog } = require('../../test')
+const { startHost } = require('../host')
 
 const setupHost = () => {
-  const modules = {}
-  modules.log = createTestLog()
   const config = createTestConfig()
+  const modules = configureModules(config)
+  modules.log = createTestLog()
+
   const host = startHost(modules, config)
 
   return { ...modules, host }
