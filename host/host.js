@@ -8,5 +8,10 @@ exports.startHost = (modules, config) => {
     Registration.registerConsumers(componentHost, modules, config)
   })
 
+  host.on('stopped', async () => {
+    await modules.postgresGateway.end()
+    modules.log.info('host has stopped')
+  })
+
   return host
 }
