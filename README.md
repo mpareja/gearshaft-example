@@ -9,6 +9,7 @@ An example is often worth a thousand words. This repository is provided as an ex
 3. Configure the Postgres credentials used by the example
 4. Run the tests: `npm run test`
 5. Run the host: `npm run dev`
+6. Write a test message: `node registration/test/interactive/create-registration.js`
 
 ### Running Postgres
 
