@@ -4,3 +4,7 @@ create table registration_view (
 	version bigint not null,
 	primary key (email_address)
 );
+
+grant select, update, insert, delete
+on registration_view
+to message_store;

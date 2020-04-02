@@ -13,8 +13,8 @@ exports.createCommandConsumer = (modules, config) => {
     groupMember: config.gearshaft.groupMember,
     groupSize: config.gearshaft.groupSize,
     log: modules.gearshaftLog,
+    messageStore: modules.messageStore,
     name: 'Registration.Command',
-    registerHandlers,
-    messageStore: modules.messageStore
+    registerHandlers
   })
 }
