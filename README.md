@@ -7,7 +7,7 @@ An example is often worth a thousand words. This repository is provided as an ex
 1. Run a Postgres instance
 2. Provision a message store database
 3. Configure the Postgres credentials used by the example
-4. Run the tests: `npm run test`
+4. Run the tests: `npm test`
 5. Run the host: `npm run dev`
 6. Write a test message: `node registration/test/interactive/create-registration.js`
 
@@ -41,7 +41,9 @@ docker rm -fv pg
 
 2. (Re)create the message store database and user credentials
 
-   If you are using the default (compromised) credentials, simply run: `npm run recreate`; otherwise, customize the following commands as necessary:
+   If you are using the default (compromised) credentials, simply run: `npm run recreate`.
+
+   If you are _not_ using the default credentials, customize these commands as necessary:
 
    1. Create the message_store database:
 
