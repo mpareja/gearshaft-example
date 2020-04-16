@@ -4,9 +4,9 @@ An example is often worth a thousand words. This repository is provided as an ex
 
 ## Quick Start
 
-1. Run a Postgres instance
-2. Provision a message store database
-3. Configure the Postgres credentials used by the example
+1. [Run a Postgres instance](#running-postgres)
+2. [Provision a message store database](#provisioning-message-store-database)
+3. [Configure the Postgres credentials used by the example](#configuring-postgres-credentials)
 4. Run the tests: `npm test`
 5. Run the host: `npm run dev`
 6. Write a test message: `node registration/test/interactive/create-registration.js`
